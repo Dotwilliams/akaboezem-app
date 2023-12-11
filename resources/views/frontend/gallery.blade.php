@@ -155,6 +155,11 @@
 
         </div>
 
+        <span style="float: left; font-weight:bold;">
+          <h6> 
+            <b>Go Gack To <a href=" {{ Route('member.index_dashboard') }} ">My Dashboard</a></b>
+          </h6>
+        </span>
       </div>
     </section><!-- End Gallery Section -->
 

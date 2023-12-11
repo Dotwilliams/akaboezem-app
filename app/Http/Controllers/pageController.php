@@ -29,4 +29,7 @@ class pageController extends Controller
     public function gallery()  {
         return view('frontend.gallery');
     }
+
+    
+
 }

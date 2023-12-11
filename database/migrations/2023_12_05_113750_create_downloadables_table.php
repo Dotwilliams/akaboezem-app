@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('downloadables', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('filepath');
+            $table->string('status')->default('active');
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }

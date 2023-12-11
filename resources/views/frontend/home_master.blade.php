@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>MeFamily Bootstrap Template - Index</title>
+    <title>Akaboezem - Members</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
-   
+
     <!-- Favicons -->
     <link href=" {{ asset('frontend/assets/img/favicon.png') }} " rel="icon" />
     <link href=" {{asset('frontend/assets/img/apple-touch-icon.png')}} " rel="apple-touch-icon" />
@@ -67,7 +67,7 @@
             <!-- <li><a href="events.html">Events</a></li> -->
 
             <li><a href="{{ route('membership') }}">Membership</a></li>
-            
+
             <!-- <li><a href="gallery.html">Gallery</a></li> -->
 
             <li><a href="{{ route('contact') }}">Contact</a></li>
@@ -88,7 +88,7 @@
     <!-- End Header -->
 
     @yield('content')
-  
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
@@ -126,7 +126,7 @@
       ><i class="bi bi-arrow-up-short"></i
     ></a>
 
-   
+
     <!-- Vendor JS Files -->
     <script src=" {{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
     <script src=" {{asset('frontend/assets/vendor/glightbox/js/glightbox.min.js')}} "></script>

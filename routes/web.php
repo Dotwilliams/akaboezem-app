@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberProfileController;
+use App\Http\Controllers\DownloadableController;
+
 use App\Models\MemberProfile;
 
 /*
@@ -57,7 +60,8 @@ Route::prefix('admin')->group(function (){
 
     Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin_middleware');
 
-    Route::get('/logout',[AdminController::class, 'AdminLogout'])->name('admin.logout');
+    Route::post('logout', [AdminController::class, 'destroy'])
+                ->name('admin.logout');
 
     Route::get('/profile',[AdminController::class, 'Profile'])->name('admin.profile')->middleware('admin_middleware');
 
@@ -70,6 +74,13 @@ Route::prefix('admin')->group(function (){
     Route::get('/message',[AdminController::class, 'Message'])->name('admin.message')->middleware('admin_middleware');
 
     Route::get('/download',[AdminController::class, 'Download'])->name('admin.download')->middleware('admin_middleware');
+
+
+    Route::get('/view_all_members',[AdminController::class, 'AllMembers'])->name('admin.view_all_member')->middleware('admin_middleware');
+
+    Route::get('/view_admin',[AdminController::class, 'ViewAdmin'])->name('admin.view_admin')->middleware('admin_middleware');
+
+    Route::get('/update_subscription_package',[AdminController::class, 'UpdateSubscription'])->name('admin.update_subscription_package')->middleware('admin_middleware');
 
 
 
@@ -91,9 +102,30 @@ Route::prefix('admin')->group(function (){
 
 Route::prefix('member')->group(function (){
 
-    Route::get('/{id}',[MemberProfileController::class, 'Member'])->name('member.{id}');
 
 
+    // Route::get('/{id}',[PageController::class, 'Member'])->name('member.{id}');
+
+
+    Route::get('/index_dashboard',[MemberProfileController::class, 'Dashboard'])->name('member.index_dashboard')->middleware('activesubscription_middleware');
+
+    Route::get('/resources',[MemberProfileController::class, 'Resources'])->name('member.resources')->middleware('activesubscription_middleware');
+
+    Route::get('/donation',[MemberProfileController::class, 'Donation'])->name('member.donation')->middleware('activesubscription_middleware');
+
+    Route::get('/notification',[MemberProfileController::class, 'Notification'])->name('member.notification')->middleware('activesubscription_middleware');
+
+    Route::get('/sub_reminder',[MemberProfileController::class, 'SubReminder'])->name('member.sub_reminder')->middleware('activesubscription_middleware');
+
+    Route::get('/download_history',[MemberProfileController::class, 'DownloadHistory'])->name('member.download_history')->middleware('activesubscription_middleware');
+
+
+
+
+    Route::post('logout', [MemberProfileController::class, 'destroy'])
+                ->name('member.logout');
 
 
 });
+
+Route::post('/create-downloadable', [DownloadableController::class, 'store']);

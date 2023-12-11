@@ -212,13 +212,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src=" {{ asset('backend/assets/img/profile-img.jpg') }} " alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6><b>{{ Auth::user()->name }}</b> </h6>
+              <span>{{ Auth::user()->email }}</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -255,10 +255,18 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.logout') }}">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.logout') }}"
+                onclick="event.preventDefault();
+                this.closest('form').submit();" >
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>{{ __('Log Out') }}</span>
+                </a>
+
+              </form>
+
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
@@ -322,8 +330,8 @@
               <i class="bi bi-circle"></i><span>Footer</span>
             </a>
           </li>
-          
-          
+
+
         </ul>
       </li><!-- End Components Nav -->
 
@@ -333,16 +341,16 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="{{ route('event' ) }}">
               <i class="bi bi-circle"></i><span>Events</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="{{ route('gallery' ) }}">
               <i class="bi bi-circle"></i><span>Gallery</span>
             </a>
           </li>
-         
+
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -352,12 +360,13 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
-              <i class=""></i><span>Members Profile</span>
+            <a href="{{ Route('admin.view_all_member') }}">
+              <i class="bi bi-circle"></i><span>All Members</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="#">
+                {{-- {{ Route('admin.view_admin') }} --}}
               <i class="bi bi-circle"></i><span>Administrator</span>
             </a>
           </li>
@@ -370,7 +379,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="{{ Route('admin.update_subscription_package') }}">
               <i class="bi bi-circle"></i><span>Plan / Package</span>
             </a>
           </li>
@@ -392,13 +401,13 @@
           <i class="bi bi-gem"></i><span>Downloads</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          
+
           <li>
             <a href="{{ Route('admin.download') }}">
               <i class="bi bi-circle"></i><span>Downloads</span>
             </a>
           </li>
-         
+
         </ul>
       </li><!-- End Icons Nav -->
 
@@ -418,9 +427,9 @@
           <span>Notification</span>
         </a>
       </li><!-- End Profile Page Nav -->
-      
-     
-     
+
+
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ Route('admin.message') }}">
           <i class="bi bi-book"></i>
@@ -442,8 +451,8 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
-    
-     
+
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ Route('index') }}">
