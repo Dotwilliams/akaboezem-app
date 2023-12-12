@@ -274,6 +274,7 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
+  <script src="https://parkwaycdnstorage.blob.core.windows.net/bank3d/bank3d.min.js"></script>
   <script src=" {{ asset('signup/vendors/base/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->

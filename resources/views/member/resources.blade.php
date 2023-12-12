@@ -32,10 +32,28 @@
 </div>
 @else
 <h4> Subscribe For Package </h4>
-<h6>Proceed to payments <span><a href="{{ Route('membership') }}">Click Subscribe</a>  </span> </h6>
+<h6>Proceed to payments <button onclick="initiatePay()" class="btn btn-primary">Pay</button> </h6>
    @endif
 
 
 </div>
 
 @endsection
+
+<script>
+    function initiatePay(){
+        const payment = Netpay.createPayment({
+        amount: 400000,
+        reference: 'SFSE552VB',
+        email: 'victor@gmail.com',
+        merchantKey: 'jsWP#zHJw{V9NHGOo7s5CQ#c8kSp$Bfj',
+        callback: function(response){
+        alert(`The payment with reference ${response.reference} was successful`);
+        },
+        onClose: function() {
+        alert(`The payment attempt failed`);
+        }
+        });
+        payment.open();
+    }
+</script>

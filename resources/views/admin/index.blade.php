@@ -478,7 +478,7 @@
             <div class="card-body pb-0">
               <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
 
-              <div class="news">
+              {{-- <div class="news">
                 <div class="post-item clearfix">
                   <img src=" {{ asset('backend/assets/img/news-1.jpg') }} " alt="">
                   <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
@@ -509,7 +509,7 @@
                   <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
                 </div>
 
-              </div><!-- End sidebar recent posts-->
+              </div><!-- End sidebar recent posts--> --}}
 
             </div>
           </div><!-- End News & Updates -->

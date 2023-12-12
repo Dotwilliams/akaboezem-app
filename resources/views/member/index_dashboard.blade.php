@@ -63,19 +63,17 @@
                         <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <h5 class="mb-0 d-inline-block">9 Dec 2023</h5>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
                           <a class="dropdown-item" href="#">12 Dec 2023</a>
-                          <a class="dropdown-item" href="#">22 Dec 2023</a>
-                          <a class="dropdown-item" href="#">31 Dec 2023</a>
-                        </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
                   <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                     <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
                     <div class="d-flex flex-column justify-content-around">
-                      <small class="mb-1 text-muted">Subscription Plan Duration</small>
-                      <h5 class="me-2 mb-0">1 Year (12 months)</h5>
+                      <small class="mb-1 text-muted">Plan Duration</small>
+                      <h5 class="me-2 mb-0">1 Year</h5>
                     </div>
                   </div>
                   <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
@@ -111,11 +109,9 @@
                         <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <h5 class="mb-0 d-inline-block">9 Dec 2023</h5>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
                           <a class="dropdown-item" href="#">12 Dec 2023</a>
-                          <a class="dropdown-item" href="#">22 Dec 2023</a>
-                          <a class="dropdown-item" href="#">31 Dec 2023</a>
-                        </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
@@ -136,8 +132,8 @@
                   <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                     <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
                     <div class="d-flex flex-column justify-content-around">
-                      <small class="mb-1 text-muted">Subscription Plan Duration</small>
-                      <h5 class="me-2 mb-0">1 Year (12 months)</h5>
+                      <small class="mb-1 text-muted">Plan Duration</small>
+                      <h5 class="me-2 mb-0">1 Year</h5>
                     </div>
                   </div>
                   <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
@@ -159,21 +155,13 @@
                         <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <h5 class="mb-0 d-inline-block">9 Dec 2023</h5>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
                           <a class="dropdown-item" href="#">12 Dec 2023</a>
-                          <a class="dropdown-item" href="#">22 Dec 2023</a>
-                          <a class="dropdown-item" href="#">31 Dec 2023</a>
-                        </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
-                  <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                    <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
-                    <div class="d-flex flex-column justify-content-around">
-                      <small class="mb-1 text-muted">Subscription Plan Duration</small>
-                      <h5 class="me-2 mb-0">1 Year (12 months)</h5>
-                    </div>
-                  </div>
+
                   <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                     <i class="mdi mdi-eye me-3 icon-lg text-success"></i>
                     <div class="d-flex flex-column justify-content-around">
@@ -187,6 +175,15 @@
                       <small class="mb-1 text-muted">Downloads</small>
                       <h5 class="me-2 mb-0">0</h5>
                     </div>
+
+                    <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                        <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
+                        <div class="d-flex flex-column justify-content-around">
+                          <small class="mb-1 text-muted">Plan Duration</small>
+                          <h5 class="me-2 mb-0">1 Year</h5>
+                        </div>
+                      </div>
+
                   </div>
                   <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                     <i class="mdi mdi-bell me-3 icon-lg text-danger"></i>
@@ -319,8 +316,8 @@
             </div>
           </div>
         </div>
-      {{-- </div> --}} --}}
-    </div> --}}
+      {{-- </div> --}} 
+    </div>
   </div>
 
 @endsection
