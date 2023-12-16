@@ -91,6 +91,9 @@ Route::prefix('admin')->group(function (){
 
     Route::get('/offline_payment',[AdminController::class, 'offlinePayment'])->name('admin.offline_payment')->middleware(['admin_middleware']);
 
+    Route::post('/verify-payment',[OfflinePaymentController::class, 'verifyPayment'])->name('admin.verify-payment')->middleware(['admin_middleware']);
+
+
 
 
 

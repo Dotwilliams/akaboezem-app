@@ -88,9 +88,8 @@
                         @csrf
                         @method('patch')
 
-                        @foreach ($users as $user)
 
-                        @endforeach
+
 
                         <div class="row mb-3">
                             <x-input-label for="name" class="col-md-4 col-lg-3 col-form-label" :value="__('Name')" />
@@ -114,7 +113,12 @@
 
 
 
+
+
                         @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+
+
+
                         <div>
                             <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
                                 {{ __('Your email address is unverified.') }}

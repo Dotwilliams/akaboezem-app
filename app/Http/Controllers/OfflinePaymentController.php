@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\OfflinePayment;
+use App\Models\MemberSubscription;
 
 class OfflinePaymentController extends Controller
 {
@@ -29,5 +31,33 @@ class OfflinePaymentController extends Controller
     public function get(){
         $payment = offlinepayment::get();
 
+    }
+
+
+    public function verifyPayment(Request $request){
+        $offlinepayment = OfflinePayment::find($request->id);
+
+        $user = User::find($offlinepayment->user_id);
+
+        // return $user;
+
+        if ($request->verdict == 'approve') {
+           User::find($offlinepayment->user_id)->update([
+            'subscription_status' => true
+           ]);
+
+           $recorded = MemberSubscription::create([
+            'user_id' => $user->id,
+
+            'exp_date' => $user->updated_at->addDays(365),
+           ]);
+           $offlinepayment->update(['status'=> 'approved']);
+           
+           return back()->with('message', 'Payment Approve');
+        }
+
+        if ($request->verdict == 'disapprove') {
+
+        }
     }
 }
