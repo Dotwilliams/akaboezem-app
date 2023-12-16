@@ -73,11 +73,35 @@
             <li><a href="{{ route('contact') }}">Contact</a></li>
 
             <li>
+              @auth
+
+              @if (Auth::user()->role == 'user')
+
+              <a href="{{ route('member.index_dashboard') }}">
+                <button type="button" class="btn btn-primary">
+                  Dashboard
+                </button></a>
+
+                @else
+
+                <a href="{{ route('admin.dashboard') }}">
+                    <button type="button" class="btn btn-primary">
+                      Dashboard
+                    </button></a>
+
+              @endif
+
+              @endauth
+
+              {{-- -----------Guest-------------- --}}
+
+              @guest
               <a href="{{ route('login') }}">
                 <button type="button" class="btn btn-primary">
-                  Sign Up
-                </button></a
-              >
+                 Sign Up
+                </button></a>
+              @endguest
+
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>

@@ -6,12 +6,13 @@ namespace App\Http\Controllers;
 
 // use App\Models\Admin;
 use Auth;
-use Illuminate\Http\Request;
-use App\Models\Admin;
-use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Admin;
 use App\Models\Downloadable;
+use Illuminate\Http\Request;
+use App\Models\OfflinePayment;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminController extends Controller
@@ -31,7 +32,8 @@ class AdminController extends Controller
 
 
     public function Profile(){
-        return view ('admin.profile');
+        $users = User::get();
+        return view ('admin.profile', compact('users'));
     } // end method
 
 
@@ -46,7 +48,9 @@ class AdminController extends Controller
     public function Download(){
         $downloads = Downloadable::get();
 
-        return view('admin.download',compact('downloads'));
+        $trashDownload = Downloadable::onlyTrashed()->latest()->paginate(3);
+
+        return view('admin.download',compact('downloads', 'trashDownload'));
     } // end method
 
 
@@ -58,12 +62,31 @@ class AdminController extends Controller
 
     public function ViewAdmin(){
 
-        $users = User::all();
+        $users = User::get();
         return view('admin.view_admin', compact('users'));
     } // end method
 
     public function UpdateSubscription(){
         return view('admin.update_subscription_package');
+    } // end method
+
+
+
+    public function StoreAdmin(Request $request){
+        $request->validate([
+            'name' => 'required|unique:users|max:255',
+            'email' => 'required|unique:users|max:255',
+
+        ],
+        [
+            'name.required' => 'Pls Input Admin Name',
+            'email.required' => 'Pls Input Admin Email',
+        ]
+    );
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
     } // end method
 
 
@@ -90,46 +113,27 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/index');
+        return redirect('/');
+    }
+
+    public function create_sub_admin(Request $request){
+        $sub_admin = User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'role'=>'sub_admin',
+            'otp'=>rand(111, 999),
+            'usercode'=>'Admin'.rand(111, 999),
+            'subscription_status'=>true,
+            'email_verified_at'=> Carbon::now(),
+            'password'=>Hash::make($request->password),
+        ]);
+        return back();
     }
 
 
-    // public function Login(Request $request){
-    //    dd($request->all());
+    public function offlinePayment(Request $request){
 
-        // $check = $request->all();
-        // if(Auth::guard('admin')->attempt(['Email' => $check['email'],
-        //  'password' => $check['password'] ])){
-        //     return redirect()->route('admin.dashboard')->with('error', 'Admin Login Successfully');
-        //  }else{
-        //     return back()->with('error', 'Invalid Email Or Password');
-        //  }
-
-    // } // end method
-
-
-
-    // public function AdminLogout(){
-    //     Auth::guard('admin')->logout();
-    //     return redirect()->route('index')->with('error', 'Admin Logout Successfully');
-
-    // } // end method
-
-
-    // public function AdminRegister(){
-    //     return view ('admin.admin_register');
-    // } // end method
-
-
-    // public function AdminRegisterCreate(Request $request){
-    //    Admin::insert([
-    //     'name' => $request->name,
-    //     'email' => $request->email,
-    //     'password' => Hash::make($request->password),
-    //     'created_at' => Carbon::now(),
-
-    //    ]);
-    //    return redirect()->route('login_form')->with('error', 'Admin Created Successfully');
-
-    // } // end method
+        $payments = OfflinePayment::get();
+        return view('admin.offline_payment', compact('payments'));
+    }
 }

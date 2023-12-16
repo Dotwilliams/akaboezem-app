@@ -266,11 +266,14 @@
 
                         <td><a href="#" class="text-primary">{{ $download->filepath }}</a></td>
 
-                        <td><span class="badge bg-success"> Active </span></td>
+                        <td><span class="badge bg-success"><a href="#" class="btn btn-waring btn-sm" title="Upload Downloadable Resources">Active</a></span></td>
 
-                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><span class="badge bg-info">
+                            <a href="{{ url('/download/edit'.$download->id) }}" class="btn btn-info btn-sm" title="Edit Downloadable Resources">Edit</a></span></td>
 
-                        <td><span class="badge bg-danger">Delete</span></td>
+                            <td><span class="badge bg-warning">  <a href="#" class="btn btn-warning btn-sm" title="De-activate Downloadable Resources">Pending</a></span></td>
+
+                        <td><span class="badge bg-danger">  <a href="#" class="btn btn-danger btn-sm" title="Delete Downloadable Resources"><i class="bi bi-trash"></i></a></span></td>
 
                       </tr>
                       @endforeach
@@ -360,21 +363,51 @@
           </div>
         </div><!-- End Left side columns -->
 
+{{--  -------------------------------------------------------------------- --}}
+
         <!-- Right side columns -->
         <div class="col-lg-4">
 
           <!-- Budget Report -->
           <div class="card">
 
+            @if (Auth::user()->role == 'admin')
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Create <span> Adiministrator</span></h5>
+                <h5 class="card-title">Create <span>Sub Adiministrator</span></h5>
+                <form action="{{ route('admin.create_sub_admin') }}" method="post">
+                  @csrf
+                  <div class="form-group mb-3">
+                      <label for="name">Name</label>
+                      <input type="text" name="name" class="form-control" id="name">
+                  </div>
+
+                  <div class="form-group mb-3">
+                      <label for="email">Email</label>
+                      <input type="text" name="email" class="form-control" id="email">
+                  </div>
+
+                  <div class="form-group mb-3">
+                      <label for="password">Password</label>
+                      <input type="password" name="password" class="form-control" id="password">
+                  </div>
+
+                  <div class="mb-2" >
+                      <button type="submit" class="btn btn-primary">Create</button>
+                  </div>
+
+
+              </form>
 
 
 
+              </div>
 
-            </div>
-          </div><!-- End Budget Report -->
+            @else
+
+            @endif
+
+          </div><!-- End Budget| Create Admin Report -->
 
             <!-- Recent Activity -->
             <div class="card">

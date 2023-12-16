@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('member_subscriptions', function (Blueprint $table) {
+        Schema::create('offline_payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('exp_date');
+            $table->string('prove_of_payment');
+            $table->string('status')->default('inactive');
+
+
+
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('member_subscriptions');
+        Schema::dropIfExists('offline_payments');
     }
 };

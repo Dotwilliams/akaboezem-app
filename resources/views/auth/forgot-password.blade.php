@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>User Forget Password</title>  
+  <title>User Forget Password</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href=" {{ asset('signup/vendors/mdi/css/materialdesignicons.min.css') }} ">
   <link rel="stylesheet" href="  {{ asset('signup/vendors/base/vendor.bundle.base.css') }}  ">
@@ -19,17 +19,15 @@
 </head>
 
 <body>
-  <div class="container-scroller">   
+  <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
         <div class="row flex-grow">
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
-              <div class="brand-logo">
-                <img src=" {{ asset('signup/images/logo.svg') }} " alt="logo">
-              </div>
-              <h4>Forget Password!</h4>
-              <h6 class="font-weight-light">Oya Change it!</h6>
+
+             
+              <h6 class="font-weight-light">Forget Password!</h6>
 
 
               <form class="pt-3" method="POST" action="{{ route('password.email') }}">
@@ -44,13 +42,13 @@
                       </span>
                     </div>
 
-                    <input type="text" class="form-control form-control-lg border-left-0" id="email" 
+                    <input type="text" class="form-control form-control-lg border-left-0" id="email"
                      required autofocus
                     name="email"
                     placeholder="Enter Your Email"
                     required>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                    
+
                   </div>
                 </div>
 
@@ -58,8 +56,8 @@
                 <div class="my-3">
                   <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-large auth-form-btn" value="{{ __('Email Password Reset Link') }}" />
                 </div>
-                
-                
+
+
               </form>
 
 

@@ -51,7 +51,7 @@
               <i class="mdi mdi-message-text mx-0"></i>
               <span class="count"></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
+            {{-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
               <a class="dropdown-item">
                 <div class="item-thumbnail">
@@ -90,7 +90,7 @@
                   </p>
                 </div>
               </a>
-            </div>
+            </div> --}}
           </li>
           <li class="nav-item dropdown me-4">
             <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
@@ -144,7 +144,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-              <img src=" {{ asset('signup/images/faces/face5.jpg') }} " alt="profile"/>
+              {{-- <img src=" {{ asset('signup/images/faces/face5.jpg') }} " alt="profile"/> --}}
               <span class="nav-profile-name">{{ Auth::user()->name }}</span>
               <span class="nav-profile-name">{{ Auth::user()->email }}</span>
 
@@ -236,7 +236,8 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href=" {{Route('member.sub_reminder') }}">Plan Reminder</a></li>
-                <li class="nav-item"> <a class="nav-link" href=" {{Route('member.donation') }}">Make Voluntry Donations</a></li>
+                <li class="nav-item"> <a class="nav-link" href=" {{Route('member.donation') }}">Make Donations</a></li>
+
               </ul>
             </div>
           </li>
@@ -261,8 +262,8 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">Akaboezem.com </a>2023</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Akaboezem Members dashboard  </a> view</span>
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="#" target="_blank">Akaboezem.com </a>2023</span>
+
         </div>
         </footer>
         <!-- partial -->

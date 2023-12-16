@@ -211,7 +211,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src=" {{ asset('backend/assets/img/profile-img.jpg') }} " alt="Profile" class="rounded-circle">
+            {{-- <img src=" {{ asset('backend/assets/img/profile-img.jpg') }} " alt="Profile" class="rounded-circle"> --}}
             <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -275,12 +275,15 @@
       </ul>
     </nav><!-- End Icons Navigation -->
 
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
+
+        {{-- ----------------------Dashboard------------------ --}}
 
       <li class="nav-item">
         <a class="nav-link " href="{{ Route('admin.dashboard') }}">
@@ -288,6 +291,11 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+
+
+      {{-- ------------------web components--------------------------- --}}
+
+      @if (Auth::user()->role == 'admin')
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -335,7 +343,17 @@
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class="nav-item">
+      @else
+
+      @endif
+
+
+
+
+{{-- ------------------Extra Page------------------------- --}}
+
+       @if (Auth::user()->role == 'admin')
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Extra Pages</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -353,7 +371,11 @@
 
         </ul>
       </li><!-- End Forms Nav -->
+       @else
 
+       @endif
+
+{{-- ------------------------ Users -------------------------------- --}}
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Users / Members</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -365,34 +387,41 @@
             </a>
           </li>
           <li>
-            <a href="#">
-                {{-- {{ Route('admin.view_admin') }} --}}
-              <i class="bi bi-circle"></i><span>Administrator</span>
+            <a href="{{ Route('admin.view_admin') }}">
+
+              <i class="bi bi-circle"></i><span>Administrators</span>
             </a>
           </li>
         </ul>
       </li><!-- End Tables Nav -->
+
+      {{-- -----------------------Subscription----------------------------------- --}}
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Subscriptions</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ Route('admin.update_subscription_package') }}">
-              <i class="bi bi-circle"></i><span>Plan / Package</span>
-            </a>
-          </li>
-          <li>
-            {{-- <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li> --}}
-          {{-- <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li> --}}
+
+
+       <li>
+        <a href="{{ Route('admin.update_subscription_package') }}">
+            <i class="bi bi-circle"></i><span>Update Package</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ Route('admin.update_subscription_package') }}">
+            <i class="bi bi-circle"></i><span>View Online Payment</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ Route('admin.offline_payment') }}">
+            <i class="bi bi-circle"></i><span>View Offline Payment</span>
+        </a>
+      </li>
+
         </ul>
       </li><!-- End Charts Nav -->
 
@@ -402,11 +431,16 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-          <li>
-            <a href="{{ Route('admin.download') }}">
-              <i class="bi bi-circle"></i><span>Downloads</span>
-            </a>
-          </li>
+       @if (Auth::user()->role == 'admin')
+       <li>
+        <a href="{{ Route('admin.download') }}">
+          <i class="bi bi-circle"></i><span>Downloads</span>
+        </a>
+      </li>
+
+       @else
+
+       @endif
 
         </ul>
       </li><!-- End Icons Nav -->

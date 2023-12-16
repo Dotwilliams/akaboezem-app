@@ -1,13 +1,16 @@
 <?php
 
+use App\Models\MemberProfile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pageController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MemberProfileController;
-use App\Http\Controllers\DownloadableController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
 
-use App\Models\MemberProfile;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\DownloadableController;
+use App\Http\Controllers\MemberProfileController;
+use App\Http\Controllers\OfflinePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +27,9 @@ use App\Models\MemberProfile;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,7 +44,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // pageController
-Route::get('/index', [pageController::class, 'index'])->name('index');
+Route::get('/', [pageController::class, 'index'])->name('index');
 Route::get('/about', [pageController::class, 'about'])->name('about');
 Route::get('/membership', [pageController::class, 'membership'])->name('membership');
 Route::get('/contact', [pageController::class, 'contact'])->name('contact');
@@ -58,29 +61,38 @@ Route::prefix('admin')->group(function (){
 
     Route::post('/login/owner',[AdminController::class, 'Login'])->name('admin.login');
 
-    Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin_middleware');
+    Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware(['admin_middleware']);
 
     Route::post('logout', [AdminController::class, 'destroy'])
                 ->name('admin.logout');
 
-    Route::get('/profile',[AdminController::class, 'Profile'])->name('admin.profile')->middleware('admin_middleware');
+    Route::get('/profile',[AdminController::class, 'Profile'])->name('admin.profile')->middleware(['admin_middleware']);
 
-    Route::get('/faq',[AdminController::class, 'Faq'])->name('admin.faq')->middleware('admin_middleware');
+    Route::get('/faq',[AdminController::class, 'Faq'])->name('admin.faq')->middleware(['admin_middleware']);
 
-    Route::get('/contact',[AdminController::class, 'Contact'])->name('admin.contact')->middleware('admin_middleware');
+    Route::get('/contact',[AdminController::class, 'Contact'])->name('admin.contact')->middleware(['admin_middleware']);
 
-    Route::get('/notification',[AdminController::class, 'Notification'])->name('admin.notification')->middleware('admin_middleware');
+    Route::get('/notification',[AdminController::class, 'Notification'])->name('admin.notification')->middleware(['admin_middleware']);
 
-    Route::get('/message',[AdminController::class, 'Message'])->name('admin.message')->middleware('admin_middleware');
+    Route::get('/message',[AdminController::class, 'Message'])->name('admin.message')->middleware(['admin_middleware']);
 
-    Route::get('/download',[AdminController::class, 'Download'])->name('admin.download')->middleware('admin_middleware');
+    Route::get('/download',[AdminController::class, 'Download'])->name('admin.download')->middleware(['admin_middleware']);
 
 
-    Route::get('/view_all_members',[AdminController::class, 'AllMembers'])->name('admin.view_all_member')->middleware('admin_middleware');
+    Route::get('/view_all_members',[AdminController::class, 'AllMembers'])->name('admin.view_all_member')->middleware(['admin_middleware']);
 
-    Route::get('/view_admin',[AdminController::class, 'ViewAdmin'])->name('admin.view_admin')->middleware('admin_middleware');
+    Route::get('/view_admin',[AdminController::class, 'ViewAdmin'])->name('admin.view_admin')->middleware(['admin_middleware']);
 
-    Route::get('/update_subscription_package',[AdminController::class, 'UpdateSubscription'])->name('admin.update_subscription_package')->middleware('admin_middleware');
+    Route::get('/update_subscription_package',[AdminController::class, 'UpdateSubscription'])->name('admin.update_subscription_package')->middleware(['admin_middleware']);
+
+    Route::post('/store_new_admin',[AdminController::class, 'StoreAdmin'])->name('admin.store_new_admin')->middleware(['admin_middleware']);
+
+    Route::post('/create_sub_admin',[AdminController::class, 'create_sub_admin'])->name('admin.create_sub_admin')->middleware(['admin_middleware']);
+
+    Route::get('/offline_payment',[AdminController::class, 'offlinePayment'])->name('admin.offline_payment')->middleware(['admin_middleware']);
+
+
+
 
 
 
@@ -103,11 +115,7 @@ Route::prefix('admin')->group(function (){
 Route::prefix('member')->group(function (){
 
 
-
-    // Route::get('/{id}',[PageController::class, 'Member'])->name('member.{id}');
-
-
-    Route::get('/index_dashboard',[MemberProfileController::class, 'Dashboard'])->name('member.index_dashboard')->middleware('activesubscription_middleware');
+    Route::get('/index_dashboard',[MemberProfileController::class, 'Dashboard'])->name('member.index_dashboard')->middleware(['activesubscription_middleware','verified']);
 
     Route::get('/resources',[MemberProfileController::class, 'Resources'])->name('member.resources')->middleware('activesubscription_middleware');
 
@@ -119,9 +127,6 @@ Route::prefix('member')->group(function (){
 
     Route::get('/download_history',[MemberProfileController::class, 'DownloadHistory'])->name('member.download_history')->middleware('activesubscription_middleware');
 
-
-
-
     Route::post('logout', [MemberProfileController::class, 'destroy'])
                 ->name('member.logout');
 
@@ -129,3 +134,21 @@ Route::prefix('member')->group(function (){
 });
 
 Route::post('/create-downloadable', [DownloadableController::class, 'store']);
+Route::get('/download/edit/{id}', [DownloadableController::class, 'edit']);
+
+
+// Laravel 8 & 9
+Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+
+// Laravel 8 & 9
+Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
+
+
+
+// Laravel 8 & 9 Donation
+Route::post('/donate', [DonationController::class, 'redirectToGateway'])->name('donate');
+
+// Laravel 8 & 9
+Route::get('/donation/callback', [DonationController::class, 'handleGatewayCallback']);
+
+Route::post('/post_payment_prove',[OfflinePaymentController::class, 'uploadProve']);

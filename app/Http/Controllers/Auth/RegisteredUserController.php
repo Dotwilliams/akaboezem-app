@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -48,7 +49,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/member/index_dashboard');
-        // return redirect(RouteServiceProvider::HOME);
+
+        return redirect(RouteServiceProvider::HOME);
+        // return redirect('/member/index_dashboard');
     }
 }

@@ -25,7 +25,12 @@ class DownloadableController extends Controller
             'filepath' => $path,
             // 'status' => $request->status,
             // 'cover_image' => $request->cover_image,
-        ]); 
+        ]);
         return back()->with('msg', 'Resource registered successfuly');
+    }
+
+    public function edit($id) {
+        $downloadables = Downloadable::find($id);
+        return view('admin.download_edit', compact('downloadables'));
     }
 }

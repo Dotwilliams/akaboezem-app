@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login - AKABOEZEM</title>  
+  <title>Login - AKABOEZEM</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href=" {{ asset('signup/vendors/mdi/css/materialdesignicons.min.css') }} ">
   <link rel="stylesheet" href="  {{ asset('signup/vendors/base/vendor.bundle.base.css') }}  ">
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="container-scroller">   
+  <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
         <div class="row flex-grow">
@@ -28,7 +28,7 @@
               <div class="brand-logo">
                 {{-- <img src=" {{ asset('signup/images/logo.png') }} " alt="logo"> --}}
               </div>
-              <h4>Welcome back!</h4>
+
               <h6 class="font-weight-light">Happy to see you again!</h6>
 
               {{-- Session Error Message  --}}
@@ -50,11 +50,11 @@
                       </span>
                     </div>
 
-                    <input type="text" class="form-control form-control-lg border-left-0" id="email" 
+                    <input type="text" class="form-control form-control-lg border-left-0" id="email"
                     name="email"
                     placeholder="Enter Email"
                     required>
-                    
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -69,7 +69,7 @@
                     <input type="password" class="form-control form-control-lg border-left-0" id="password"
                     name="password"
                     placeholder="Enter your password"
-                    required>   
+                    required>
 
                   </div>
                 </div>
@@ -86,7 +86,7 @@
                   <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-large auth-form-btn" value="Login" />
                   {{-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">LOGIN</a> --}}
                 </div>
-                
+
                 <div class="text-center mt-4 font-weight-light">
                   Don't have an account? <a href="{{ route('register') }}" class="text-primary">Create</a>
                 </div>

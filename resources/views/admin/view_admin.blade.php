@@ -6,7 +6,7 @@
 
     <div>
         <h5>Hello  <b>{{ Auth::user()->name }}</b> </h5>
-        <h6 style="">There are current <b>{{ count($users) }}</b> members on the app </h6>
+
     </div>
 
     <section class="section">
@@ -15,8 +15,8 @@
 
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Datatables</h5>
-                <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable. Check for <a href="https://fiduswriter.github.io/simple-datatables/demos/" target="_blank">more examples</a>.</p>
+                <h5 class="card-title">All Administrators</h5>
+                <p></p>
 
                 <!-- Table with stripped rows -->
                 <table class="table datatable">
@@ -37,16 +37,26 @@
                   {{-- table body --}}
                   <tbody>
 
+                    @if (Auth::user()->role == 'admin')
+
                     @foreach($users as $user)
-                <tr>
-                     <td>{{ $user->id }}</td>
-                     <td>{{ $user->name }}</td>
-                      <td>{{ $user->email }}</td>
-                      <td>{{ $user->role }}</td>
-                      <td>{{ $user->usercode }}</td>
-                      {{-- <td>{{ $user->created_at->diffForHumans() }}</td> --}}
-                 </tr>
-                 @endforeach
+                    <tr>
+                         <td>{{ $user->id }}</td>
+                         <td>{{ $user->name }}</td>
+                          <td>{{ $user->email }}</td>
+                          <td>{{ $user->role }}</td>
+                          <td>{{ $user->usercode }}</td>
+                          {{-- <td>{{ $user->created_at->diffForHumans() }}</td> --}}
+                     </tr>
+                     @endforeach
+
+                     @else
+
+                     <h6>No Current Admin</h6>
+
+                    @endif
+
+
 
                   </tbody>
                 </table>

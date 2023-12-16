@@ -22,16 +22,19 @@
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-end flex-wrap">
+
+            <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
+                <a href="{{Route("member.download_history") }}"> <i class="mdi mdi-clock-outline text-muted"></i> </a>
+               </button>
+
             <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
               <a href="{{Route("member.resources") }}"> <i class="mdi mdi-download text-muted"></i> </a>
             </button>
-            <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
-             <a href=""> <i class="mdi mdi-clock-outline text-muted"></i> </a>
-            </button>
+
             {{-- <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
               <i class="mdi mdi-plus text-muted"></i>
             </button> --}}
-            <button class="btn btn-danger mt-2 mt-xl-0"> <a href="#" style="color: black">Subscription Review</a> </button>
+            <button class="btn btn-danger mt-2 mt-xl-0"> <a href="{{Route("member.sub_reminder") }}" style="color: black">Subscription Review</a> </button>
           </div>
         </div>
       </div>
@@ -203,8 +206,39 @@
       <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title">Cash deposits</p>
+            <p class="card-title">New Notications</p>
             <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
+            <!-- List group with Advanced Contents -->
+      <div class="list-group">
+
+        <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small>And some small print.</small>
+        </a>
+
+        <a href="#" class="list-group-item list-group-item-action m-2">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small class="text-muted">And some muted small print.</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action m-2">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small class="text-muted">And some muted small print.</small>
+        </a>
+      </div><!-- End List group Advanced Content -->
+
+
             <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>
 
           </div>
@@ -215,7 +249,7 @@
       <div class="col-md-5 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title">Notice Board</p>
+            <p class="card-title" style="color: rgb(174, 3, 3)">Updates & Developments</p>
             <h1>Lorem ipsum dolor sit amet</h1>
             <h5> consectetur adipisicing elit </h5>
             <p class="text-muted">Optio distinctio perspiciatis numquam porro est, error recusandae explicabo facere quas esse veritatis aliquam at fugit labore commodi exercitationem quasi id cumque!
@@ -316,7 +350,7 @@
             </div>
           </div>
         </div>
-      {{-- </div> --}} 
+      {{-- </div> --}}
     </div>
   </div>
 

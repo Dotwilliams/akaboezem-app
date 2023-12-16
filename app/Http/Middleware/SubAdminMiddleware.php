@@ -5,9 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class SubAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +15,8 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Check if the user is authenticated
-        if (Auth::check()) {
+          // Check if the user is authenticated
+          if (Auth::check()) {
             // Check if the user has the "admin" role
             if (Auth::user()->role == 'admin' || Auth::user()->role == 'sub_admin') {
                 // User has the "admin" role, proceed with the request
@@ -28,5 +27,6 @@ class AdminMiddleware
         // User is not authenticated or doesn't have the "admin" role
         // You can customize this part based on your requirements
         return redirect('/')->with('error', 'Unauthor');
+
     }
 }

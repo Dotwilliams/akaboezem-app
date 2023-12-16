@@ -29,9 +29,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         $user_role = Auth::user()->role;
-        if ($user_role=='admin') {
+        if ($user_role=='admin' || $user_role=='sub_admin') {
             return redirect('/admin/dashboard');
-        }else{  
+        }else{
             return redirect('/member/index_dashboard');
 
             // return redirect()->intended(RouteServiceProvider::HOME);
@@ -49,6 +49,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/index');
+        return redirect('/');
     }
 }
