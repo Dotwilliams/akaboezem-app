@@ -44,9 +44,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="{{ Route('index') }}" class="logo d-flex align-items-center">
+      <a href="{{ Route('admin.dashboard') }}" class="logo d-flex align-items-center">
         {{-- <img src=" {{ asset('backend/assets/img/logo.png') }} " alt=""> --}}
-        <span class="d-none d-lg-block">AKABOEZEM Admin</span>
+        <span class="d-none d-lg-block">AKABOEZEM</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -323,18 +323,18 @@
             </a>
           </li>
           <li>
-            <a href="components-cards.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Our Story</span>
             </a>
           </li>
           <li>
-            <a href="components-carousel.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Representative</span>
             </a>
           </li>
 
           <li>
-            <a href="components-carousel.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Footer</span>
             </a>
           </li>
@@ -378,7 +378,7 @@
 {{-- ------------------------ Users -------------------------------- --}}
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Users / Members</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Members</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -494,6 +494,7 @@
           <span>Go To Website</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">

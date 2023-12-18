@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->string('message')->nullable();
+
+            $table->string('category')->nullable();
+            $table->boolean('read')->default(false);
+
+            $table->string('type')->nullable();
+            $table->morphs('notifiable');
+            $table->text('data')->nullable();
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }

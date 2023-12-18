@@ -51,12 +51,12 @@
                       <td><a href="#" class="text-primary">{{ $download->filepath }}</a></td>
                       <td><span class="badge bg-success"><a href="#" class="btn btn-waring btn-sm" title="Upload Downloadable Resources">Active</a></span></td>
 
-                      <td><span class="badge bg-info">
-                          <a href="{{ url('download/edit'.$download->id) }}" class="btn btn-info btn-sm" title="Edit Downloadable Resources">Edit</a></span></td>
+                      {{-- <td><span class="badge bg-info">
+                          <a href="{{ url('download/edit'.$download->id) }}" class="btn btn-info btn-sm" title="Edit Downloadable Resources">Edit</a></span></td> --}}
 
-                          <td><span class="badge bg-warning">  <a href="#" class="btn btn-warning btn-sm" title="De-activate Downloadable Resources">Pending</a></span></td>
+                          {{-- <td><span class="badge bg-warning">  <a href="#" class="btn btn-warning btn-sm" title="De-activate Downloadable Resources">Pending</a></span></td> --}}
 
-                      <td><span class="badge bg-danger">  <a href="#" class="btn btn-danger btn-sm" title="Delete Downloadable Resources"><i class="bi bi-trash"></i></a></span></td>
+                      {{-- <td><span class="badge bg-danger">  <a href="#" class="btn btn-danger btn-sm" title="Delete Downloadable Resources"><i class="bi bi-trash"></i></a></span></td> --}}
 
                     </tr>
                     @endforeach

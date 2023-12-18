@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\OfflinePayment;
 use App\Models\MemberSubscription;
+use App\Notifications\MebmerSubscribedNotification;
 
 class OfflinePaymentController extends Controller
 {
@@ -52,7 +53,8 @@ class OfflinePaymentController extends Controller
             'exp_date' => $user->updated_at->addDays(365),
            ]);
            $offlinepayment->update(['status'=> 'approved']);
-           
+
+           $user->notify(new MebmerSubscribedNotification($recorded));
            return back()->with('message', 'Payment Approve');
         }
 

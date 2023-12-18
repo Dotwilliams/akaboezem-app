@@ -37,9 +37,11 @@
                   {{-- table body --}}
                   <tbody>
 
-                    @if (Auth::user()->role == 'admin')
+
 
                     @foreach($users as $user)
+
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'sub_admin')
                     <tr>
                          <td>{{ $user->id }}</td>
                          <td>{{ $user->name }}</td>
@@ -48,15 +50,15 @@
                           <td>{{ $user->usercode }}</td>
                           {{-- <td>{{ $user->created_at->diffForHumans() }}</td> --}}
                      </tr>
-                     @endforeach
+
+
 
                      @else
 
                      <h6>No Current Admin</h6>
 
-                    @endif
-
-
+                     @endif
+                    @endforeach
 
                   </tbody>
                 </table>

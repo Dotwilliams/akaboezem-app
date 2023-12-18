@@ -9,31 +9,29 @@
       <!-- List group with Advanced Contents -->
       <div class="list-group">
 
-        <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small>3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small>And some small print.</small>
-        </a>
+        @foreach ($user_notifications as $user_notification)
 
         <a href="#" class="list-group-item list-group-item-action m-2">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{$user_notification->title}}</h5>
+
+              <p class="mb-1">{{$user_notification->message}}</p>
+              {{-- <small class="text-muted">{{\Carbon\Carbon::parse($user_notification->created_at)->diffForHumans()}}</small> --}}
+              {{-- <small class="text-muted">And some muted small print.</small> --}}
+            </div>
+
+          </a>
+
+        @endforeach
+
+
+        {{-- <a href="#" class="list-group-item list-group-item-action m-2">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">List group item heading</h5>
             <small class="text-muted">3 days ago</small>
           </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action m-2">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
+
+        </a> --}}
       </div><!-- End List group Advanced Content -->
 
     </div>

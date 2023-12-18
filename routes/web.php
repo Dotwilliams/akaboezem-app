@@ -2,11 +2,12 @@
 
 use App\Models\MemberProfile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadableController;
 use App\Http\Controllers\MemberProfileController;
@@ -155,3 +156,8 @@ Route::post('/donate', [DonationController::class, 'redirectToGateway'])->name('
 Route::get('/donation/callback', [DonationController::class, 'handleGatewayCallback']);
 
 Route::post('/post_payment_prove',[OfflinePaymentController::class, 'uploadProve']);
+
+
+
+
+Route::post('/update-app',[AppController::class, 'update']);

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\MemberSubscription;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use App\Notifications\MebmerSubscribedNotification;
 
 class PaymentController extends Controller
 {
@@ -48,6 +49,7 @@ class PaymentController extends Controller
 
             'exp_date' => $user_data->updated_at->addDays(365),
            ]);
+           $user_data->notify(new MebmerSubscribedNotification($recorded));
            return redirect('/member/resources');
         } else {
             redirect('member.resources');

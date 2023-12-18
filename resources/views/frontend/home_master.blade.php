@@ -52,7 +52,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo"
+        <a href="{{ route('index') }}" class="logo"
           ><img src=" {{ asset('frontend/assets/img/ac-logo.png') }}  " alt="site-logo" class="img-fluid"
         /></a>
         <!-- Uncomment below if you prefer to use an image logo -->

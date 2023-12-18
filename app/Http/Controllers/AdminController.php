@@ -26,6 +26,7 @@ class AdminController extends Controller
 
     public function Dashboard(){
         $users = User::all();
+        // $downloads = Downloadable::all();
         $downloads = Downloadable::get();
         return view ('admin.index', compact('users', 'downloads'));
     } // end method
@@ -47,10 +48,8 @@ class AdminController extends Controller
 
     public function Download(){
         $downloads = Downloadable::get();
-
-        $trashDownload = Downloadable::onlyTrashed()->latest()->paginate(3);
-
-        return view('admin.download',compact('downloads', 'trashDownload'));
+        // $trashDownload = Downloadable::onlyTrashed()->latest()->paginate(3);
+        return view('admin.download',compact('downloads'));
     } // end method
 
 

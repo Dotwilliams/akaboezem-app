@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Downloadable;
+use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class MemberProfileController extends Controller
 {
@@ -26,7 +29,20 @@ class MemberProfileController extends Controller
 
 
     public function Notification()  {
-        return view('member.notification');
+        $notifications = Notification::where('data->user_id', Auth::user()->id)->latest()->get();
+
+        $user_notifications = [];
+
+        foreach ($notifications as $notificaion)
+        {
+            # code...
+
+            array_push($user_notifications, json_decode($notificaion->data));
+
+        }
+        // return $user_notifications ;
+
+        return view('member.notification', compact('user_notifications'));
     }
 
     public function DownloadHistory()  {

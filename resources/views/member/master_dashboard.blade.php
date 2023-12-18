@@ -235,7 +235,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=" {{Route('member.sub_reminder') }}">Plan Reminder</a></li>
+                {{-- <li class="nav-item"> <a class="nav-link" href=" {{Route('member.sub_reminder') }}">Plan Reminder</a></li> --}}
+                {{-- <li class="nav-item"> <a class="nav-link" href=" {{Route('member.s') }}">Subscribe</a></li> --}}
                 <li class="nav-item"> <a class="nav-link" href=" {{Route('member.donation') }}">Make Donations</a></li>
 
               </ul>

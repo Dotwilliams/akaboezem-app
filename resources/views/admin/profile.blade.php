@@ -244,6 +244,22 @@
         </div>
       </section>
 
+      <div class="mt-2">
+        @if(Session::has('msg'))
+                            <p class="alert alert-info">{{ Session::get('msg') }}</p>
+                            @endif
+
+
+                            <form action="/update-app" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Update application version </button>
+                                </div>
+
+
+
+      </div>
+
   </main>
   <!-- End #main -->
 </section>

@@ -24,19 +24,19 @@
 
            {{-- ---------------------Edit Download------------------------- --}}
 
-           <div class="card basic">
+           {{-- <div class="card basic">
             <div class="card-body">
-              <h5 class="card-title">Edit Resource Documents</h5>
+              <h5 class="card-title">Edit Resource Documents</h5> --}}
 
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
+            {{-- @csrf
 
             <div class="row mb-3">
                 <label for="name" class="col-sm-2 col-form-label">Update Document Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="name" id="name" value="{{ $downloadables->name }}">
                 </div>
-              </div>
+              </div> --}}
 
               {{-- <div class="row mb-3">
                 <label for="file" class="col-sm-2 col-form-label">Update File</label>
@@ -46,9 +46,9 @@
               </div> --}}
 
 
-              <div class="text-center">
+              {{-- <div class="text-center">
                 <button type="submit" class="btn btn-primary">Update</button>
-              </div>
+              </div> --}}
 
         </form>
             </div>
@@ -58,15 +58,9 @@
 
     {{-- 2nd col --}}
 
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
 
-
-
-
-
-
-
-      </div>
+      </div> --}}
 
 
 

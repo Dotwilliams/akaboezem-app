@@ -46,8 +46,7 @@
                       </li>
 
                       <li><a class="dropdown-item" href="#">Today</a></li>
-                      <li><a class="dropdown-item" href="#">This Month</a></li>
-                      <li><a class="dropdown-item" href="#">This Year</a></li>
+
                     </ul>
                   </div>
 
@@ -60,7 +59,7 @@
                       </div>
                       <div class="ps-3">
                         <h6>{{ count($users) }}</h6>
-                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                        {{-- <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span> --}}
 
                       </div>
                     </div>
@@ -84,8 +83,7 @@
                     </li>
 
                     <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+
                   </ul>
                 </div>
 
@@ -98,7 +96,6 @@
                     </div>
                     <div class="ps-3">
                       <h6>{{ count($downloads) }}</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
                   </div>
@@ -120,13 +117,12 @@
                     </li>
 
                     <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Notifications <span>| This Month</span></h5>
+                  <h5 class="card-title">Notifications </h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -143,6 +139,9 @@
               </div>
             </div><!-- End Revenue Card -->
 
+            {{-- ------------------------------------------------- --}}
+
+{{-- -----------------------------MEMBERS TABLE----------------------------------------- --}}
 
             <!-- Member Table Reports -->
             <div class="col-12">
@@ -156,13 +155,12 @@
                     </li>
 
                     <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Users Tables</h5>
+                  <h5 class="card-title"></h5>
 
                   {{-- Table Start --}}
 
@@ -172,7 +170,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">MEMBERS Datatables</h5>
+              <h5 class="card-title">All MEMBERS Datatable  </h5>
               <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat in facilis, soluta quia voluptatem, commodi earum maiores tempore, nisi voluptates quo deleniti fuga labore consectetur excepturi consequatur accusamus? Sint, quisquam! </p>
 
               <!-- Table with stripped rows -->
@@ -224,6 +222,8 @@
               </div>
             </div><!-- End Reports -->
 
+            {{-- ------------------------------------------------------------------------- --}}
+
             <!-- Recent Sales // Downloads -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -252,7 +252,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">File Path</th>
                             <th scope="col">Status</th>
-                            {{-- <th scope="col">Edit</th> --}}
+
                         </tr>
 
                     </thead>
@@ -268,12 +268,12 @@
 
                         <td><span class="badge bg-success"><a href="#" class="btn btn-waring btn-sm" title="Upload Downloadable Resources">Active</a></span></td>
 
-                        <td><span class="badge bg-info">
+                        {{-- <td><span class="badge bg-info">
                             <a href="{{ url('/download/edit'.$download->id) }}" class="btn btn-info btn-sm" title="Edit Downloadable Resources">Edit</a></span></td>
 
                             <td><span class="badge bg-warning">  <a href="#" class="btn btn-warning btn-sm" title="De-activate Downloadable Resources">Pending</a></span></td>
 
-                        <td><span class="badge bg-danger">  <a href="#" class="btn btn-danger btn-sm" title="Delete Downloadable Resources"><i class="bi bi-trash"></i></a></span></td>
+                        <td><span class="badge bg-danger">  <a href="#" class="btn btn-danger btn-sm" title="Delete Downloadable Resources"><i class="bi bi-trash"></i></a></span></td> --}}
 
                       </tr>
                       @endforeach
