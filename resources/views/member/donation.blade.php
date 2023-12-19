@@ -40,11 +40,11 @@
                         <form method="POST" action="{{ route('donate') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
                             <div class="row" style="margin-bottom:40px;">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <p>
+                                    {{-- <p>
                                         <div>
                                             Buy Me Coffee
                                         </div>
-                                    </p>
+                                    </p> --}}
                                     <input type="hidden" name="email" value="{{ Auth::user()->email }}"> {{-- required --}}
                                     <input type="hidden" name="orderID" value="345">
                                     <input type="number" class="form-control m-2" name="amount" value=""> {{-- required in kobo --}}
@@ -54,7 +54,7 @@
                                     <input type="hidden" name="currency" value="NGN">
                                     <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                                     <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
-                                    <input type="hidden" name="callback_url" value="http://localhost:8000/donation/callback">
+                                    <input type="hidden" name="callback_url" value="{{config('app.url').'donation/callback'}}">
 
                                     {{-- <input type="hidden" name="split_code" value="SPL_EgunGUnBeCareful"> to support transaction split. more details https://paystack.com/docs/payments/multi-split-payments/#using-transaction-splits-with-payments --}}
                                     {{-- <input type="hidden" name="split" value="{{ json_encode($split) }}"> to support dynamic transaction split. More details https://paystack.com/docs/payments/multi-split-payments/#dynamic-splits --}}
