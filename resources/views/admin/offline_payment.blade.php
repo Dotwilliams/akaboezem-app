@@ -8,15 +8,17 @@
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
 
+<div class="row">
+
 @foreach ($payments as $payment)
   <!-- Card with an image on top -->
-  <div class="row">
+
     <div class="col-sm-4">
         <div class="card">
-            <img src="{{ asset('backend/assets/img/card.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/'.$payment->prove_of_payment) }}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card with an image on top</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">{{ $payment->user->name }}</h5>
+              <p class="card-text">{{ $payment->user->email }}</p>
 
            @if ($payment->status=='approved' )
            <h6> Approved </h6>
@@ -25,9 +27,7 @@
             @csrf
             <input type="hidden" name="id" value="{{ $payment->id }}">
             <input type="hidden" name="verdict" value="approve">
-
- <button type="submit" class="btn btn-success">Approve</button>
-
+             <button type="submit" class="btn btn-success">Approve</button>
           </form>
 {{-- -------------------------------------------- --}}
 
@@ -35,8 +35,7 @@
             @csrf
             <input type="hidden" name="id" value="{{ $payment->id }}">
             <input type="hidden" name="verdict" value="disapprove">
-
- <button type="submit" class="btn btn-danger">Disapprove</button>
+             <button type="submit" class="btn btn-danger">Disapprove</button>
 
           </form>
 
@@ -47,9 +46,10 @@
             </div>
           </div><!-- End Card with an image on top -->
     </div>
-  </div>
+
 
 @endforeach
+</div>
 
 </main>
 

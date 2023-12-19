@@ -7,17 +7,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MebmerSubscribedNotification extends Notification implements ShouldQueue
+class MebmerDonationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
-    protected $subscriptionData;
+    protected $donationData;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($subscriptionData)
+    public function __construct($donationData)
     {
-        $this->subscriptionData = $subscriptionData;
+        $this->donationData = $donationData;
     }
 
     /**
@@ -28,7 +28,7 @@ class MebmerSubscribedNotification extends Notification implements ShouldQueue
     public function via(object $notifiable): array
     {
         return ['database'];
-        //'mail',
+        // mail
     }
 
     /**
@@ -47,12 +47,12 @@ class MebmerSubscribedNotification extends Notification implements ShouldQueue
      */
     public function toDatabase(object $notifiable)
     {
-        $subscriptionDetails = $this->subscriptionData;
+        $donationDetails = $this->donationData;
 
         return [
             'user_id' => $notifiable->id,
-            'title' => 'New Subscription',
-            'message' => "Thank you for subscribing, your subscription expires on {$subscriptionDetails['exp_date']}!",
+            'title' => 'New Donation',
+            'message' => "Thank you for Your Donation, We Really Do Appreciate Your Kind Gesture Towards The Development Of AkABOEZEM !",
         ];
     }
 

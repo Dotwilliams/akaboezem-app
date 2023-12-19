@@ -11,11 +11,11 @@
     <div class="col-md-4">
 
          <!-- Card with an image overlay -->
-    <div  style="max-width: 230px; min-height:160px; margin: 25px;" class="card">
-        <img src="{{ asset('signup/images/card.jpg') }}" class="card-img-top"  alt="...">
+    <div  style="max-width: 230px; min-height:160px; margin: 25px;" class="card shadow">
+        {{-- <img src="{{ asset('signup/images/card.jpg') }}" class="card-img-top"  alt="..."> --}}
         <div class="card-img-overlay">
           <h5 class="card-title" style="text-align: center;"> <b> {{ $resource->name }} </b> </h5>
-          <p class="card-title" style="text-align: center;">{{ $resource->filepath }}</p>
+          {{-- <p class="card-title" style="text-align: center;">{{ $resource->filepath }}</p> --}}
 
           {{-- <a href="#"  class="btn btn-primary" style="text-align: center;" >Download</a> --}}
           <a href="/storage/{{$resource->filepath}}"  class="btn btn-primary btn-lg btn-block" download>

@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Paystack;
 
 use App\Models\User;
-use App\Models\Donation;
 use App\Http\Requests;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use App\Notifications\MebmerDonationNotification;
 
 class DonationController extends Controller
 {
@@ -45,7 +46,7 @@ class DonationController extends Controller
                'user_id' => $user->id,
                'amount' => $paymentDetails['data']['amount']
            ]);
-
+           $user->notify(new MebmerDonationNotification($donation));
            return redirect('/member/donation');
         //    return redirect('/member/resources');
         } else {

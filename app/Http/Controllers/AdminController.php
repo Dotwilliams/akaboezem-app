@@ -132,7 +132,7 @@ class AdminController extends Controller
 
     public function offlinePayment(Request $request){
 
-        $payments = OfflinePayment::get();
+        $payments = OfflinePayment::with('user')->get();
         return view('admin.offline_payment', compact('payments'));
     }
 }
