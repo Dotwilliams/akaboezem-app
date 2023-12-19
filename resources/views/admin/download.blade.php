@@ -108,7 +108,7 @@
 
         {{-- ---------------------Edit Download------------------------- --}}
 
-        <div class="card basic">
+        {{-- <div class="card basic">
             <div class="card-body">
               <h5 class="card-title">Edit Resource Documents</h5>
 
@@ -136,7 +136,7 @@
 
         </form>
             </div>
-          </div>
+          </div> --}}
 
 
       </div>
