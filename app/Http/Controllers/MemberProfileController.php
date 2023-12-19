@@ -13,7 +13,19 @@ class MemberProfileController extends Controller
     // member dashboard
 
     public function Dashboard()  {
-        return view('member.index_dashboard');
+        $notifications = Notification::where('data->user_id', Auth::user()->id)->latest()->get();
+
+        $user_notifications = [];
+
+        foreach ($notifications as $notificaion)
+        {
+            # code...
+
+            array_push($user_notifications, json_decode($notificaion->data));
+
+        }
+        // return $user_notifications ;
+        return view('member.index_dashboard', compact('user_notifications'));
     }
 
 

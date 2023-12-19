@@ -206,36 +206,36 @@
       <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title">New Notications</p>
-            <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
+            <p class="card-title">Your Latest Notifications</p>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             <!-- List group with Advanced Contents -->
       <div class="list-group">
 
-        <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
+        {{-- <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">List group item heading</h5>
             <small>3 days ago</small>
           </div>
           <p class="mb-1">Some placeholder content in a paragraph.</p>
           <small>And some small print.</small>
+        </a> --}}
+
+        @foreach ($user_notifications as $user_notification)
+
+
+        <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" style="color: rgb(197, 10, 10);"><b>{{$user_notification->title}}</b></h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">{{$user_notification->message}}</p>
+          {{-- <small>And some small print.</small> --}}
         </a>
 
-        <a href="#" class="list-group-item list-group-item-action m-2">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action m-2">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Some placeholder content in a paragraph.</p>
-          <small class="text-muted">And some muted small print.</small>
-        </a>
+      @endforeach
+
+
+
       </div><!-- End List group Advanced Content -->
 
 
