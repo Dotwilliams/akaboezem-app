@@ -223,7 +223,7 @@
         @foreach ($user_notifications as $user_notification)
 
 
-        <a href="#" class="list-group-item list-group-item-action m-2 active" aria-current="true">
+        <a href="#" class="list-group-item list-group-item-action m-2" aria-current="true">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1" style="color: rgb(197, 10, 10);"><b>{{$user_notification->title}}</b></h5>
             <small>3 days ago</small>
