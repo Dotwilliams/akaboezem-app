@@ -137,7 +137,7 @@
         amount: 400000,
         reference: 'SFSE552VB',
         email: 'victor@gmail.com',
-        merchantKey: 'jsWP#zHJw{V9NHGOo7s5CQ#c8kSp$Bfj',
+        merchantKey: 'B3DwePGAupzuL0WYX3Yzw4Am',
         callback: function(response){
         alert(`The payment with reference ${response.reference} was successful`);
         },
